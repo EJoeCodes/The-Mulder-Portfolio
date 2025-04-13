@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Projects</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <header>
+    <div class="title-container">
+      <h1><span class="portfolio-line1">My Projects</span></h1>
+      <img src="{{ url_for('static', filename='images/mulder_logo.png') }}" alt="Logo" class="title-logo-projects">
+    </div>    
+    <nav class="projects-nav">
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="projects-container">
+    <div class="project-card">
+      <div class="project-icon-mulder">
+        <img src="{{ url_for('static', filename='images/mulder_logo.png') }}" alt="Portfolio Icon" />
+      </div>
+      <div class="project-info">
+        <h3 class ="project-title">
+          <a href="https://yinsight-shc6.onrender.com/" target="_blank" class ="project-link">
+            The Mulder Portfolio
+          </a>
+        </h3>
+        <p class ="project-description">A personal site built with HTML, CSS, and Flask to showcase my skills, journey, and personality. <br> Fully responsive and interactive as it continues to be a work in progress. <br> (Yes the logo is an X files reference) </p>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-icon-yinsight">
+          <img src="{{ url_for('static', filename='images/yinyang.png') }}" alt="Portfolio Icon" />
+      </div>
+      <div class="project-info">
+        <h3 class ="project-title">
+          <a href="https://yinsight-shc6.onrender.com/" target="_blank" class="project-link">
+            YinSight
+          </a>
+        </h3>
+        <p class ="project-description">
+          A Python-based web scraper delivering uplifting news, while letting users submit their own bad news to offload personal negativity. 
+        </p>
+      </div>
+    </div>
+
+    <!-- Add more project-card sections as needed -->
+  </main>
+</body>
+</html>

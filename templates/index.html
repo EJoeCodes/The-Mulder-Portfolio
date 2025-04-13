@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <header>
+    <div class="title-container">
+      <h1><span class="portfolio-line1">The Mulder Portfolio</span></h1>
+      <img src="{{ url_for('static', filename='images/mulder_logo.png') }}" alt="Logo" class="title-logo">
+    </div>    
+    <nav>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/projects">Projects</a>
+        <a href="/contact">Contact</a>
+      </nav>      
+    </nav>
+  </header>
+
+  <section>
+    <h2 id="hi-there" class="intro-line"><span id="hi-span"></span></h2>
+    <p id="ethan" class="ethan-intro"><span id="ethan-span"></span></p>
+    <p id="tagline" class="p2"><span id="tagline-span"></span></p>
+
+    <button class="dropdown-toggle" id="climb-button" onclick="toggleDropdown()">
+      What do you mean "climb and compile"?
+    </button>
+
+    <div id="dropdown-content" class="dropdown-content">
+        <p class="why-climb-content">
+          At the heart of everything I do are two forces that continually challenge and inspire me: Coding and Climbing. Whether I'm piecing together lines of logic or navigating a crux on the wall, I thrive where strategy meets grit: In the moments where persistence becomes progress<br>&ndash; That’s climbing and compiling
+        </p>
+      
+        <div class="button-and-reel">
+          <button class="reel-toggle" onclick="toggleInstagram()">See it in Action</button>
+      
+          <div id="insta-wrapper" class="insta-wrapper">
+            <div class="insta-box">
+              <blockquote 
+                class="instagram-media" 
+                data-instgrm-captioned 
+                data-instgrm-permalink="https://www.instagram.com/reel/DEBYvVCvg82/?utm_source=ig_embed&amp;utm_campaign=loading" 
+                data-instgrm-version="14">
+              </blockquote>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      <!-- Second dropdown button, initially hidden -->
+<button id="compile-button" class="compile-toggle">Enough Climbing, how about Compiling?</button>
+
+<!-- Optional: A second content box -->
+<div id="compile-dropdown" class="compile-content">
+  <p class="compile-text">I’m a rising junior at the University of Arkansas, majoring in Computer Science. I stumbled into coding late in high school—and haven’t looked back since. There’s something incredibly exhilarating about building your own solution from scratch. Whether it’s a stubborn bug or a blank screen, I love the challenge. Problem-solving feels like a puzzle I get to solve every day, and I’m always looking for the next opportunity to put those skills to the test.</p>
+  <a href="{{ url_for('projects') }}" class="see-action-link">
+    <button class="reel-toggle compile-btn">Climb into my projects</button>
+  </a>
+</div>
+  </section>
+
+  <script>
+    function toggleDropdown() {
+  const dropdown = document.getElementById("dropdown-content");
+  const compileBtn = document.getElementById("compile-button");
+  dropdown.classList.toggle("show");
+
+  // Show the second button after dropdown appears
+  if (dropdown.classList.contains("show")) {
+    setTimeout(() => {
+      compileBtn.classList.add("visible");
+    }, 500);
+  } else {
+    compileBtn.classList.remove("visible");
+    document.getElementById("compile-dropdown").style.display = "none";
+  }
+}
+
+document.getElementById("compile-button").addEventListener("click", () => {
+  const content = document.getElementById("compile-dropdown");
+  content.style.display = content.style.display === "block" ? "none" : "block";
+});
+
+
+    function toggleInstagram() {
+  const wrapper = document.getElementById("insta-wrapper");
+  const dropdown = document.getElementById("dropdown-content");
+
+  const isVisible = wrapper.classList.toggle("show");
+
+  if (isVisible) {
+    dropdown.classList.add("expand");
+    if (window.instgrm?.Embeds) {
+      window.instgrm.Embeds.process();
+    }
+  } else {
+    dropdown.classList.remove("expand");
+  }
+}
+
+
+
+    const lines = [
+      { id: "hi-span", text: "Hi there,", delay: 40 },
+      { id: "ethan-span", text: "I'm Ethan", delay: 120 },
+      { id: "tagline-span", text: "Let's Climb and Compile", delay: 70 }
+    ];
+
+    let currentLine = 0;
+
+    function typeLine() {
+      const { id, text, delay } = lines[currentLine];
+      const element = document.getElementById(id);
+      element.innerHTML = '';
+      const cursor = document.createElement("span");
+      cursor.className = "cursor";
+      element.appendChild(cursor);
+
+      let i = 0;
+
+      function typeChar() {
+        if (i < text.length) {
+          const charSpan = document.createElement("span");
+          charSpan.className = "type-char";
+          charSpan.textContent = text.charAt(i) === " " ? "\u00A0" : text.charAt(i);
+          element.insertBefore(charSpan, cursor);
+          i++;
+          setTimeout(typeChar, delay);
+        } else {
+          cursor.remove();
+          currentLine++;
+          if (currentLine < lines.length) {
+            setTimeout(typeLine, 400);
+          } else {
+            document.getElementById("climb-button").classList.add("visible");
+          }
+        }
+      }
+
+      typeChar();
+    }
+
+    window.onload = typeLine;
+  </script>
+  <script async src="//www.instagram.com/embed.js"></script>
+</body>
+</html>
