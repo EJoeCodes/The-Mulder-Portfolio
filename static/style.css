@@ -415,12 +415,7 @@
   height: 35x;
   margin-left: 525px;
   flex-shrink: 0; /* 👈 Prevent logo from squishing text */
-  transform: translateY(-15px);
-  border-radius: 50%;
-  background-color: rgba(6, 214, 160, 0.1);
-  padding: 6px;
-  box-shadow: 0 0 10px rgba(6, 214, 160, 0.7), 0 0 20px rgba(6, 214, 160, 0.4);
-  transition: transform 0.3s ease;
+  transform: translateY(-8px);
 }
 
 .title-logo-projects {
@@ -428,10 +423,5 @@
   height: 35px;
   margin-left: 310px;
   flex-shrink: 0; /* 👈 Prevent logo from squishing text */
-  transform: translateY(-15px);
-  border-radius: 50%;
-  background-color: rgba(6, 214, 160, 0.1);
-  padding: 6px;
-  box-shadow: 0 0 10px rgba(6, 214, 160, 0.7), 0 0 20px rgba(6, 214, 160, 0.4);
-  transition: transform 0.3s ease;
+  transform: translateY(-8px);
 }
