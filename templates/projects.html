@@ -31,6 +31,24 @@
         <p class ="project-description">A personal site built with HTML, CSS, and Flask to showcase my skills, journey, and personality. <br> Fully responsive and interactive as it continues to be a work in progress. <br> (Yes the logo is an X files reference) </p>
       </div>
     </div>
+
+    <div class="project-card">
+      <div class="project-icon-drivehero-logo">
+          <img src="{{ url_for('static', filename='images/drive-hero-logo.png') }}" alt="Portfolio Icon" />
+      </div>
+      <div class="project-info">
+        <h3 class ="project-title">
+          <a href="https://drivehero.pro/" target="_blank" class="project-link">
+            DriveHero
+          </a>
+        </h3>
+        <p class ="project-description">
+          A mobile-first web app prototype built for gig drivers using DoorDash, Uber Eats, Spark, and Instacart. <br> Features include a dynamic order feed, real-time hotspot map, income tracking, budget goals, <br> and a user-friendly UI for login, support, and profile customization. <br> Built with vanilla HTML, CSS, and JavaScript (Leaflet.js for maps) 
+        </p>
+      </div>
+    </div>
+
+
     <div class="project-card">
       <div class="project-icon-yinsight">
           <img src="{{ url_for('static', filename='images/yinyang.png') }}" alt="Portfolio Icon" />
@@ -47,6 +65,7 @@
       </div>
     </div>
 
+    
     <!-- Add more project-card sections as needed -->
   </main>
 </body>
